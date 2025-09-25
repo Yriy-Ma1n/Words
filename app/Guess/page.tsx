@@ -13,11 +13,33 @@ export default function Guess() {
     const words = useSelector((state: RootState) => state.words)
     const [count, changeCount] = useState(0)
     const [countua, changeCountUa] = useState(0)
+    const [gradeEn, setGrade] = useState(0)
+    const [gradeUa, setGradeUa] = useState(0)
 
     const nextButton = () => {
+        const currWord = words[count].ua.trim().replaceAll(' ', '').toLocaleLowerCase()
+        const inputWord = input.current?.value.trim().replaceAll(' ', '').toLocaleLowerCase()
+
+
+
+        if(currWord === inputWord){
+            setGrade(currGrade => currGrade + 1)
+            
+        }
         changeCount(currCount => currCount + 1)
+
     }
     const nextButtonUa = () => {
+      
+        
+        const currWord = words[countua].eng.trim().replaceAll(' ', '').toLocaleLowerCase()
+        const inputWord = input.current?.value.trim().replaceAll(' ', '').toLocaleLowerCase()
+
+        if(currWord === inputWord){
+
+            setGradeUa(currGrade => currGrade + 1)
+           
+        }
 
         changeCountUa(currCount => currCount + 1)
     }
@@ -44,6 +66,9 @@ export default function Guess() {
             </div>
         } else {
             return <div className={styles.engGame}>
+                <div>
+                    <h1>Your result:{gradeEn + gradeUa}/{words.length * 2}</h1>
+                </div>
                 <Link href={'/'}>
                     <button>Start again</button>
                 </Link>

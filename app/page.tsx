@@ -9,10 +9,8 @@ export default function Home() {
         <Link href="/WriteDown" className={styles.mainButton}>
           <button >Start</button>
         </Link>
-        <Link href="/setting" className={styles.mainButton}>
-          <button>Setting</button>
-        </Link>
-     
+
+
     </div>
   );
 }
