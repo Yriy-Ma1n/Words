@@ -4,6 +4,7 @@ import style from "./page.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/store"
 import { add } from "@/features/words/wordsSlice"
+import Word from "@/components/word/word"
 import Link from "next/link"
 
 export default function WriteDownScreen() {
@@ -46,7 +47,7 @@ export default function WriteDownScreen() {
                 </div>
             </div>
             <div className={style.words}>
-                {wordsss.map((item, i) => item.eng ? <div key={i}>ENG: {item.eng} | UA: {item.ua}</div> : '')}
+                {wordsss.map((item, i) => item.eng ? <Word key={i} eng={item.eng} ua={item.ua} /> : '')}
             </div>
         </div>
     </>

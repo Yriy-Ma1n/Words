@@ -27,7 +27,7 @@ export default function Guess() {
     if (words[count]) {
         return <div className={styles.container}>
             <div className={styles.wordType}>
-                <div>WORD:{words[count].eng}</div>
+                <div className={styles.hideWord}>WORD:{words[count].eng}</div>
                 <input type="text" placeholder="ua" ref={input} />
                 <button onClick={nextButton}>next</button>
             </div>
@@ -43,9 +43,12 @@ export default function Guess() {
                 </div>
             </div>
         } else {
-            return <Link href={'/'}>
-                <button>Start again</button>
+            return <div className={styles.engGame}>
+                <Link href={'/'}>
+                    <button>Start again</button>
                 </Link>
+            </div>
+
         }
 
     }
