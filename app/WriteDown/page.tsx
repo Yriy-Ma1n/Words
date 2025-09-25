@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import style from "./page.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/store"
@@ -21,7 +21,7 @@ export default function WriteDownScreen() {
             return
         }
 
-        dispatch(add({ eng: engField.current!.value, ua: uaField.current?.value! }))
+        dispatch(add({ eng: engField.current!.value, ua: uaField.current?.value!, id:crypto.randomUUID() }))
 
 
         setTimeout(() => {
@@ -29,8 +29,6 @@ export default function WriteDownScreen() {
             uaField.current!.value = ''
         }, 100)
     }
-
-
 
     return <>
         <div className={style.container}>
@@ -47,7 +45,7 @@ export default function WriteDownScreen() {
                 </div>
             </div>
             <div className={style.words}>
-                {wordsss.map((item, i) => item.eng ? <Word key={i} eng={item.eng} ua={item.ua} /> : '')}
+                {wordsss.map((item, i) => item.eng ? <Word key={item.id} eng={item.eng} ua={item.ua} id={item.id} /> : '')}
             </div>
         </div>
     </>

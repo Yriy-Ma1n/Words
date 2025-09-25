@@ -109,6 +109,7 @@
     transform: translateY(0);
   }
 }
+
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -120,5 +121,17 @@
 
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media (max-width:415px) {
+  .wordType {
+    max-width: 350px;
+  }
+
+  .wordType div {
+    font-size: 14px;
+   
+
   }
 }

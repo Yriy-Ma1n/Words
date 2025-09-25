@@ -28,6 +28,12 @@ export default function Guess() {
         }
         changeCount(currCount => currCount + 1)
 
+        setTimeout(()=>{
+            if(input.current){
+                input.current.value = ''
+            }
+        },50)
+
     }
     const nextButtonUa = () => {
       
@@ -42,6 +48,12 @@ export default function Guess() {
         }
 
         changeCountUa(currCount => currCount + 1)
+
+         setTimeout(()=>{
+            if(input.current){
+                input.current.value = ''
+            }
+        },50)
     }
 
 
@@ -59,7 +71,7 @@ export default function Guess() {
         if (words[countua]) {
             return <div className={styles.container}>
                 <div className={styles.wordType}>
-                    <div>WORD:{words[countua].ua}</div>
+                    <div className={styles.fz}>WORD:{words[countua].ua}</div>
                     <input type="text" placeholder="eng" ref={input} />
                     <button onClick={nextButtonUa}>nextt</button>
                 </div>

@@ -95,3 +95,73 @@
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     animation: fadeIn 0.5s ease-in-out;
 }
+
+@media (max-width:950px) {
+    .container {
+        flex-direction: column;
+
+    }
+}
+
+@media (max-width:650px) {
+    .write {
+        flex-direction: column;
+    }
+
+    .fields {
+        width: 450px;
+    }
+}
+
+@media (max-width:550px) {
+    .write {
+        flex-direction: column;
+    }
+
+    .fields {
+        width: 350px;
+    }
+
+    .fields input {
+        width: 100%;
+    }
+
+    .words {
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width:450px) {
+    .write {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .fields {
+        width: 300px;
+    }
+
+}
+
+@media (max-width:400px) {
+    .buttons {
+        gap:20px
+    }
+    .buttons button{
+        width: 120px;
+    }
+
+}
+@media (max-width:350px) {
+     .write {
+        width: 300px;
+    }
+    .fields{
+        width: 250px;
+    }
+     .fields input {
+        
+        padding: 8px 12px;
+    }
+}
