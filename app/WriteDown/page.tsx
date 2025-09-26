@@ -21,7 +21,7 @@ export default function WriteDownScreen() {
             return
         }
 
-        dispatch(add({ eng: engField.current!.value, ua: uaField.current?.value!, id:crypto.randomUUID() }))
+        dispatch(add({ eng: engField.current!.value, ua: uaField.current?.value!, id: crypto.randomUUID() }))
 
 
         setTimeout(() => {
@@ -30,15 +30,25 @@ export default function WriteDownScreen() {
         }, 100)
     }
 
+    const addItemToArrEnter = (e:React.KeyboardEvent) => {
+        if(e.key !== 'Enter'){
+            return
+        }
+        
+       addItemToArr()
+    }
+
     return <>
-        <div className={style.container}>
+        <div className={style.container} onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => addItemToArrEnter(e)}>
             <div className={style.write}>
                 <div className={style.fields}>
                     <input type="text" placeholder="word in eng" ref={engField} />
                     <input type="text" placeholder="word in ua" ref={uaField} />
                 </div>
                 <div className={style.buttons}>
-                    <button onClick={addItemToArr}>Добавить</button>
+                    <button
+                        onClick={addItemToArr}
+                    >Добавить</button>
                     <Link href={'/Guess'}>
                         <button>Начать</button>
                     </Link>
